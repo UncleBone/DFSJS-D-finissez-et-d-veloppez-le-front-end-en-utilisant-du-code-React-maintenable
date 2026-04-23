@@ -10,7 +10,7 @@
 - Plusieurs *console.log* présents dans le code.
 
 # Nouvelle architecture
-![](/mnt/disque_local/Travail/2026%20-%20OC/Projet_02/nouvelle_architecture.png)
+![](nouvelle_architecture.png)
 
 - components:
 	* HeaderComponent
