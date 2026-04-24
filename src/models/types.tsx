@@ -12,6 +12,8 @@ interface Olympic {
     participations: Participation[];
 }
 
+type State = Array<Olympic> | null;
+
 type IndicatorValueColor = "blue" | "green" | "yellow"
 
 interface IndicatorProps { 
@@ -21,4 +23,4 @@ interface IndicatorProps {
     bottomMargin?: boolean; 
 }
 
-export type { Participation, Olympic, IndicatorProps }
+export type { Participation, Olympic, IndicatorProps, State }

@@ -1,4 +1,4 @@
-import { useState, useEffect, type FC } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Chart as ChartJS,
   ArcElement,
@@ -12,7 +12,7 @@ import {
 } from 'chart.js'
 import { Pie } from 'react-chartjs-2'
 import olympicsData from '../data/olympicsData.tsx'
-import type { IndicatorProps } from '../models/types.tsx'
+import type { IndicatorProps, State, Olympic, Participation } from '../models/types.tsx'
 import Header from '../components/Header.tsx'
 
 ChartJS.register(
@@ -26,9 +26,8 @@ ChartJS.register(
   PointElement,
 )
 
-const Home: FC = () => {
-  // Anti-pattern 3 — Utilisation de `any` — typer pour garder les bénéfices TypeScript.
-  const [data, setData] = useState<any>(null)
+const Home = () => {
+  const [data, setData] = useState<State>(null)
 
   // Anti-pattern 4 — useEffect avec logique lourde dans le composant — idéalement : custom hook ou librairie de fetching de données (ex. react-query).
   // De plus en mode développement, le "strict mode" de React est activé, ce qui va éxecuter ce code 2
@@ -44,9 +43,9 @@ const Home: FC = () => {
   }, [])
 
   // Anti-pattern 6 — Logique métier complexe directement dans le composant
-  const calculateTotalMedals = (country: any) => {
+  const calculateTotalMedals = (country: Olympic) => {
     return country.participations.reduce(
-      (sum: any, p: any) => sum + p.medalsCount,
+      (sum: number, p: Participation) => sum + p.medalsCount,
       0,
     )
   }
@@ -60,11 +59,11 @@ const Home: FC = () => {
   }
 
   const chartData = {
-    labels: data.map((d: any) => d.name),
+    labels: data.map((d: Olympic) => d.name),
     datasets: [
       {
         label: 'Total des médailles',
-        data: data.map((d: any) => calculateTotalMedals(d)),
+        data: data.map((d: Olympic) => calculateTotalMedals(d)),
         backgroundColor: [
           'rgba(255, 99, 132, 0.6)',
           'rgba(54, 162, 235, 0.6)',
