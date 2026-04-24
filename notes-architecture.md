@@ -13,13 +13,15 @@
 ![](nouvelle_architecture.png)
 
 - components:
-	* HeaderComponent
+	* Header
+	* Indicator
+	* PieChart
 - pages:
-	* DashboardPage
-	* CountryDetailPage
+	* Home
+	* Country
 - data: 
 	* tableau de données olympicsData
 - hooks:
 	* useData pour centraliser toutes les données. Facilite l’intégration future d’un back-end.
 - models:
-	* interfaces TypeScript
+	* interfaces et types TypeScript
