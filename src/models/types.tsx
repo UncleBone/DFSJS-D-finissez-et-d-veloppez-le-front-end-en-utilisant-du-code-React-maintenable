@@ -12,4 +12,6 @@ interface Olympic {
     participations: Participation[];
 }
 
-export type { Participation, Olympic }
+type IndicatorValueColor = "blue" | "green" | "yellow"
+
+export type { Participation, Olympic, IndicatorValueColor }

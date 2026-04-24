@@ -4,7 +4,6 @@ import { Line } from 'react-chartjs-2'
 import olympicsData from '../data/olympicsData.tsx'
 
 
-// Anti-pattern 9 — Plusieurs composants dans le même fichier — un fichier par composant recommandé.
 // Composant non utilisé pour le moment, mais conservé pour la suite du projet.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Country: FC = () => {
