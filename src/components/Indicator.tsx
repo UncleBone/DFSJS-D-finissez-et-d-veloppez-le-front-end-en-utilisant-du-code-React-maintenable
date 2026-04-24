@@ -1,6 +1,6 @@
-import type { IndicatorValueColor } from "../models/types"
+import type { IndicatorProps } from "../models/types"
 
-const Indicator = ({ title, value, bottomMargin, valueColor }: { title: string, value: number, bottomMargin: boolean, valueColor: IndicatorValueColor })  => {
+const Indicator = ({ title, value, bottomMargin, valueColor }: IndicatorProps)  => {
     return (
         <div className={"bg-gray-800 p-6 rounded-lg shadow-lg text-center "+(bottomMargin ? "mb-2" : "")}>
             <h3 className="text-xl font-semibold mb-2">{title}</h3>

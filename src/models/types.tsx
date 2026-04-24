@@ -14,4 +14,11 @@ interface Olympic {
 
 type IndicatorValueColor = "blue" | "green" | "yellow"
 
-export type { Participation, Olympic, IndicatorValueColor }
+interface IndicatorProps { 
+    title: string; 
+    value: number; 
+    valueColor: IndicatorValueColor; 
+    bottomMargin?: boolean; 
+}
+
+export type { Participation, Olympic, IndicatorProps }

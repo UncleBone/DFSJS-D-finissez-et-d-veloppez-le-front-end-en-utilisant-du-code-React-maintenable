@@ -12,7 +12,8 @@ import {
 } from 'chart.js'
 import { Pie } from 'react-chartjs-2'
 import olympicsData from '../data/olympicsData.tsx'
-import Indicator from '../components/Indicator.tsx'
+import type { IndicatorProps } from '../models/types.tsx'
+import Header from '../components/Header.tsx'
 
 ChartJS.register(
   ArcElement,
@@ -96,24 +97,17 @@ const Home: FC = () => {
     },
   }
 
+  const title: string = "Historique des Jeux Olympiques - TéléSport"
+  const subtitle: string = "Bienvenue sur la page dédiée à l'historique des Jeux Olympiques. Explorez les performances des pays au fil des années."
+  const indicators: Array<IndicatorProps> = [
+    { title: "Pays participants", value: totalParticipatingCountries, valueColor: "blue" },
+    { title: "Éditions des JO", value: totalGamesEditions, valueColor: "green" }
+  ]
+
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">
-          Historique des Jeux Olympiques - TéléSport
-        </h1>
-
-        <div className="mb-8">
-          <p className="text-lg">
-            Bienvenue sur la page dédiée à l'historique des Jeux Olympiques.
-            Explorez les performances des pays au fil des années.
-          </p>
-        </div>
-
-        <div className="mb-2">
-          <Indicator title="Pays participants" value={totalParticipatingCountries} bottomMargin={true} valueColor="blue" />"
-          <Indicator title="Éditions des JO" value={totalGamesEditions} bottomMargin={false} valueColor="green" />
-        </div>
+        <Header title={title} subtitle={subtitle} indicators={indicators} />
 
         <div className="bg-gray-800 p-8 rounded-lg shadow-xl">
           <div style={{ height: '400px' }}>
