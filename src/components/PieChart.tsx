@@ -1,4 +1,25 @@
 import { Pie } from 'react-chartjs-2'
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  LineElement,
+  PointElement,
+} from 'chart.js'
+ChartJS.register(
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  LineElement,
+  PointElement,
+)
 
 const PieChart = ({ labels, nbTotalMedals } : { labels: Array<string>, nbTotalMedals: Array<number> }) => {
     const chartData = {
