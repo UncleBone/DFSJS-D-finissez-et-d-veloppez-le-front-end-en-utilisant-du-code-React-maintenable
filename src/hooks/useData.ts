@@ -1,4 +1,4 @@
-import olympicsData from '../data/olympicsData.tsx'
+import olympicsData from '../data/olympicsData.ts'
 import { useEffect, useState } from "react";
 import type { Olympic } from '../models/types.tsx';
 
