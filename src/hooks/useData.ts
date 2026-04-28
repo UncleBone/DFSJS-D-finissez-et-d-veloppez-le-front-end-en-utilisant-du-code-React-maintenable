@@ -7,7 +7,6 @@ const useData = () => {
     const [data,setData] = useState<Array<Olympic>>([]);
     
     useEffect(() => {
-        setLoading(true)
         setTimeout(() => {
             setData(olympicsData)
             setLoading(false)
