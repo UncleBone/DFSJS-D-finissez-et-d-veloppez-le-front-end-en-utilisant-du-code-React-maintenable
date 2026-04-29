@@ -53,7 +53,7 @@ const PieChart = ({ labels, nbTotalMedals } : { labels: Array<string>, nbTotalMe
             legend: {
                 position: 'bottom' as const,
                 labels: {
-                color: 'white',
+                color: 'black',
                 },
             },
         },
@@ -61,13 +61,13 @@ const PieChart = ({ labels, nbTotalMedals } : { labels: Array<string>, nbTotalMe
 
     return (
         <>
-            <div className="bg-gray-800 p-8 rounded-lg shadow-xl">
+            <div className="bg-white-800 p-8">
                 <div style={{ height: '400px' }}>
                 <Pie data={chartData} options={chartOptions} />
                 </div>
             </div>
 
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-black-400">
             <p>Cliquez sur un pays pour voir ses détails</p>
             </div>
         </>

@@ -12,7 +12,7 @@ interface Olympic {
     participations: Participation[];
 }
 
-type IndicatorValueColor = "blue" | "green" | "yellow"
+type IndicatorValueColor = "blue" | "green" | "yellow" | "black"
 
 interface IndicatorProps { 
     title: string; 

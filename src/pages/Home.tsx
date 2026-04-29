@@ -26,13 +26,13 @@ const Home = () => {
   const title = "Historique des Jeux Olympiques - TéléSport"
   const subtitle = "Bienvenue sur la page dédiée à l'historique des Jeux Olympiques. Explorez les performances des pays au fil des années."
   const indicators: Array<IndicatorProps> = [
-    { title: "Pays participants", value: totalParticipatingCountries, valueColor: "blue" },
-    { title: "Éditions des JO", value: totalGamesEditions, valueColor: "green" }
+    { title: "Pays participants", value: totalParticipatingCountries, valueColor: "black" },
+    { title: "Éditions des JO", value: totalGamesEditions, valueColor: "black" }
   ]
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-white">
+      <div className="max-w-6xl mx-auto p-4">
         <Header title={title} subtitle={subtitle} indicators={indicators} />
         <PieChart labels={labels} nbTotalMedals={nbTotalMedals} />
       </div>

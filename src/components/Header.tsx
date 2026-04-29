@@ -4,21 +4,23 @@ import type { IndicatorProps } from '../models/types.tsx'
 const Header = ({ title, subtitle, indicators }: { title: string, subtitle: string, indicators: Array<IndicatorProps>}) => {
     return (
         <>
-        <h1 className="text-4xl font-bold mb-8">{title}</h1>
+        <div className="bg-(--green) text-white text-center rounded-lg p-2 mb-6">
+            <h1 className="text-4xl font-bold">{title}</h1>
 
-        { subtitle && (
-            <div className="mb-8">
-                <p className="text-lg">{subtitle}</p>
-            </div>
-            )
-        }
+            { subtitle && (
+                <div className="mt-2 mb-2">
+                    <p className="text-lg">{subtitle}</p>
+                </div>
+                )
+            }
+        </div>
 
-        <div className="mb-2">
+        <div className="mb-2 md:flex flex-row justify-around">
             {
                 indicators.map((params,index) => (
                   <Indicator 
                   key={index+" "+params.title } title={params.title} value={params.value} 
-                  bottomMargin={index < indicators.length - 1} valueColor={params.valueColor} />
+                  bottomMargin={true} valueColor={params.valueColor} />
                 ))
             }
         </div>
