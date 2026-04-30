@@ -1,4 +1,4 @@
-import type { IndicatorProps } from '../models/types.tsx'
+import type { IndicatorProps, Olympic } from '../models/types.tsx'
 import Header from '../components/Header.tsx'
 import PieChart from '../components/PieChart.tsx'
 import useData from '../hooks/useData.ts'
@@ -11,7 +11,10 @@ const Home = () => {
   }
   
   const totalParticipatingCountries = data.length
-  const totalGamesEditions = 5
+  const totalGamesEditions = data.reduce(
+    (max: number, country: Olympic) => max = Math.max(country.participations.length, max),
+    0
+  )
 
   const title = "Historique des Jeux Olympiques - TéléSport"
   const subtitle = "Bienvenue sur la page dédiée à l'historique des Jeux Olympiques. Explorez les performances des pays au fil des années."

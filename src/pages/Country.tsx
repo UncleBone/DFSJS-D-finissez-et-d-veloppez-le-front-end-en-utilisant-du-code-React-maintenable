@@ -4,7 +4,6 @@ import Header from '../components/Header.tsx'
 import useData from '../hooks/useData.ts'
 import LineChart from '../components/LineChart.tsx'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Country = () => {
   const { id } = useParams()
   const {data,loading} = useData(id)
