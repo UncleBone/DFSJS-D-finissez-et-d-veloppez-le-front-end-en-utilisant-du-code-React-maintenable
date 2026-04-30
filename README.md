@@ -20,8 +20,7 @@ Interactive web application to visualize historical performance data of countrie
 Clone the repository:
 
 ```bash
-git clone https://github.com/openclassrooms/p2-dfsjs.git
-cd p2-dfsjs
+git clone https://github.com/UncleBone/DFSJS-D-finissez-et-d-veloppez-le-front-end-en-utilisant-du-code-React-maintenable.git
 ```
 
 Install dependencies:
@@ -61,18 +60,32 @@ npm run lint
 ## 📁 Project Structure
 
 ```
-p2-dfsjs/
-├── public/              # Static public assets
+/
 ├── src/
-│   ├── App.tsx         # Main application component
-│   ├── main.tsx        # React entry point
-│   └── index.css       # Global styles
-├── index.html          # Main HTML page
-├── package.json        # Project dependencies
-├── tsconfig.json       # TypeScript configuration
-├── vite.config.ts      # Vite configuration
-├── tailwind.config.js  # Tailwind CSS configuration
-└── .eslintrc.cjs       # ESLint configuration
+│   ├── App.tsx                 # Main application component
+│   ├── main.tsx                # React entry point
+│   ├── index.css               # Global styles
+│   ├── components/
+│   │      ├── Header.tsx       # Header component 
+│   │      ├── Indicator.tsx    # Indicator component 
+│   │      ├── LineChart.tsx    # Line Chart component 
+│   │      └── PieChart.tsx     # Pie Chart component 
+│   ├── pages/
+│   │      ├── Country.tsx      # Country detail 
+│   │      ├── Home.tsx         # Dashboard 
+│   │      └── NotFound.tsx     # Error page 
+│   ├── models/
+│   │      └── type.ts          # TypeScript type declaration 
+│   ├── hooks/
+│   │      └── useData.ts       # custom hook for data fetching 
+│   └── data/
+│          └── olympicsData.ts  # data 
+├── index.html                  # Main HTML page
+├── package.json                # Project dependencies
+├── tsconfig.json               # TypeScript configuration
+├── vite.config.ts              # Vite configuration
+├── tailwind.config.js          # Tailwind CSS configuration
+└── .eslintrc.cjs               # ESLint configuration
 ```
 
 ## 🔧 Tech Stack
