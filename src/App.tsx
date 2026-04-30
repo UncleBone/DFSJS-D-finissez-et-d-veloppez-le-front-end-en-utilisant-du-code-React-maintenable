@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home.tsx'
 import Country from './pages/Country.tsx'
+import NotFound from './pages/NotFound.tsx'
 
 export const App = () => {
   return (
@@ -8,6 +9,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/country/:id" element={<Country />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

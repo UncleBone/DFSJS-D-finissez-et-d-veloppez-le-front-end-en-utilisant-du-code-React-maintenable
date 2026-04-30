@@ -1,10 +1,11 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import type { Olympic, Participation, IndicatorProps } from '../models/types.tsx'
 import Header from '../components/Header.tsx'
 import useData from '../hooks/useData.ts'
 import LineChart from '../components/LineChart.tsx'
 
 const Country = () => {
+  const navigate = useNavigate()
   const { id } = useParams()
   const {data,loading} = useData(id)
   
@@ -15,7 +16,8 @@ const Country = () => {
   const country: Olympic = data[0]
 
   if(!country){
-    return (<div>Erreur: l'identifiant n'est pas dans la base de donnée</div>)
+    navigate("/404")
+    return
   }
 
   const totalMedals = country.participations.reduce(

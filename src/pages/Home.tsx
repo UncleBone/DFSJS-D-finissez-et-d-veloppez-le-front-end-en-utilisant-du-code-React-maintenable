@@ -1,4 +1,4 @@
-import type { IndicatorProps, Olympic } from '../models/types.tsx'
+import type { IndicatorProps, Olympic } from '../models/types.ts'
 import Header from '../components/Header.tsx'
 import PieChart from '../components/PieChart.tsx'
 import useData from '../hooks/useData.ts'
@@ -24,11 +24,9 @@ const Home = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-6xl mx-auto p-4">
-        <Header title={title} subtitle={subtitle} indicators={indicators} />
-        <PieChart data={data} />
-      </div>
+    <div className="min-h-screen bg-white max-w-6xl mx-auto p-4">
+      <Header title={title} subtitle={subtitle} indicators={indicators} />
+      <PieChart data={data} />
     </div>
   )
 }
