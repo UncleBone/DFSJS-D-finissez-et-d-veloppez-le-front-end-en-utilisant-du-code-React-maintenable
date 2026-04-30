@@ -2,15 +2,20 @@ import olympicsData from '../data/olympicsData.ts'
 import { useEffect, useState } from "react";
 import type { Olympic } from '../models/types.tsx';
 
-const useData = () => {
+const useData = (countryId: string | undefined ) => {
     const [loading,setLoading] = useState(true);
     const [data,setData] = useState<Array<Olympic>>([]);
     
     useEffect(() => {
         setTimeout(() => {
-            setData(olympicsData)
+            if(countryId && countryId !== "all"){
+                const cDat = olympicsData.find((c: Olympic) => c.id === Number(countryId))
+                setData(cDat === undefined ? [] : [cDat])
+            }else{
+                setData(olympicsData)
+            }
             setLoading(false)
-            }, 200)
+            }, 500)
         }
     )
 

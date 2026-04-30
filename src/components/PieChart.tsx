@@ -10,6 +10,9 @@ import {
   LineElement,
   PointElement,
 } from 'chart.js'
+import type { Olympic, Participation } from '../models/types'
+import type { ChartEvent, ActiveElement } from 'chart.js'
+import { useNavigate } from 'react-router-dom'
 ChartJS.register(
   ArcElement,
   Tooltip,
@@ -21,7 +24,19 @@ ChartJS.register(
   PointElement,
 )
 
-const PieChart = ({ labels, nbTotalMedals } : { labels: Array<string>, nbTotalMedals: Array<number> }) => {
+const calculateTotalMedals = (country: Olympic) => {
+  return country.participations.reduce(
+    (sum: number, p: Participation) => sum + p.medalsCount,
+    0,
+  )
+}
+
+const PieChart = ({ data } : { data: Array<Olympic> }) => {
+    const navigate = useNavigate()
+
+    const nbTotalMedals: Array<number> = data.map((d: Olympic) => calculateTotalMedals(d))
+    const labels: Array<string> = data.map((d: Olympic) => d.name)
+
     const chartData = {
     labels: labels,
     datasets: [
@@ -56,6 +71,13 @@ const PieChart = ({ labels, nbTotalMedals } : { labels: Array<string>, nbTotalMe
                 color: 'black',
                 },
             },
+        },
+        onClick: (_event: ChartEvent, elements: ActiveElement[]) => {
+            if (elements.length > 0) {
+                const index = elements[0].index
+                const country = data[index]
+                navigate("/country/"+country.id)
+            }
         },
     }
 

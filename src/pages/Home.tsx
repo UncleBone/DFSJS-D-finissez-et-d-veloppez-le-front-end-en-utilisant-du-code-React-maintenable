@@ -1,24 +1,14 @@
-import type { IndicatorProps, Olympic, Participation } from '../models/types.tsx'
+import type { IndicatorProps } from '../models/types.tsx'
 import Header from '../components/Header.tsx'
 import PieChart from '../components/PieChart.tsx'
 import useData from '../hooks/useData.ts'
 
-const calculateTotalMedals = (country: Olympic) => {
-  return country.participations.reduce(
-    (sum: number, p: Participation) => sum + p.medalsCount,
-    0,
-  )
-}
-
 const Home = () => {
-  const {data,loading} = useData()
+  const {data,loading} = useData("all")
   
   if (loading) {
     return <div>Chargement...</div>
   }
-
-  const nbTotalMedals = data.map((d: Olympic) => calculateTotalMedals(d))
-  const labels = data.map((d: Olympic) => d.name)
   
   const totalParticipatingCountries = data.length
   const totalGamesEditions = 5
@@ -34,7 +24,7 @@ const Home = () => {
     <div className="min-h-screen bg-white">
       <div className="max-w-6xl mx-auto p-4">
         <Header title={title} subtitle={subtitle} indicators={indicators} />
-        <PieChart labels={labels} nbTotalMedals={nbTotalMedals} />
+        <PieChart data={data} />
       </div>
     </div>
   )
