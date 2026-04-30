@@ -34,8 +34,9 @@ const calculateTotalMedals = (country: Olympic) => {
 const PieChart = ({ data } : { data: Array<Olympic> }) => {
     const navigate = useNavigate()
 
-    const nbTotalMedals: Array<number> = data.map((d: Olympic) => calculateTotalMedals(d))
-    const labels: Array<string> = data.map((d: Olympic) => d.name)
+    const sortedData = data.sort((a: Olympic, b: Olympic) => calculateTotalMedals(b) - calculateTotalMedals(a))
+    const nbTotalMedals: Array<number> = sortedData.map((d: Olympic) => calculateTotalMedals(d))
+    const labels: Array<string> = sortedData.map((d: Olympic) => d.name)
 
     const chartData = {
     labels: labels,
